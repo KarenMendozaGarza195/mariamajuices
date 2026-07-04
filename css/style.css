@@ -182,6 +182,7 @@ a { color: inherit; }
 
 .juice--hibiscus { grid-template-columns: minmax(320px, 1fr) minmax(280px, 420px); }
 .juice--hibiscus .juice-media { order: 2; }
+.juice--hibiscus .juice-details { order: 3; }
 .juice--hibiscus .juice-card {
   order: 1;
   margin-left: 0;
