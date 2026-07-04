@@ -438,7 +438,8 @@ a { color: inherit; }
     margin: -30px 0 0;
     padding: 28px 26px;
   }
-  .juice-media { justify-self: center; }
+  .juice-media,
+  .juice--hibiscus .juice-media { justify-self: center; }
   .juice-media img { max-height: 460px; }
 
   .about,
