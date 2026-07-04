@@ -157,7 +157,7 @@ a { color: inherit; }
 
 .juice {
   display: grid;
-  grid-template-columns: minmax(280px, 420px) minmax(320px, 1fr);
+  grid-template-columns: minmax(240px, 300px) minmax(320px, 1fr);
   align-items: center;
   gap: 0;
   max-width: 1120px;
@@ -165,17 +165,30 @@ a { color: inherit; }
 }
 
 .juice-media { position: relative; z-index: 2; }
-.juice-media img { width: 100%; max-width: 420px; }
+.juice-media img { width: 100%; max-width: 300px; }
 
-/* The bottle PNGs carry ~100-125px of transparent margin at this size, so the
-   negative margins are larger than the visible overlap (~55px), as designed. */
+/* Soft ground shadow under each bottle (the PNGs are shadow-free) */
+.juice-media::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  width: 68%;
+  height: 30px;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+}
+
+/* Bottle PNGs have ~12px transparent margin, so the negative margin is
+   that plus the ~55px visible overlap with the bottle. */
 .juice-card {
   position: relative;
   z-index: 1;
   border-radius: var(--radius-card);
   padding: clamp(28px, 4vw, 56px);
-  padding-left: 110px;
-  margin-left: -165px;
+  padding-left: 100px;
+  margin-left: -66px;
 }
 
 .juice-card p { margin: 1.2em 0 0; }
@@ -186,15 +199,15 @@ a { color: inherit; }
 }
 .juice--ginger .juice-card h3 { color: var(--orange); }
 
-.juice--hibiscus { grid-template-columns: minmax(320px, 1fr) minmax(280px, 420px); }
+.juice--hibiscus { grid-template-columns: minmax(320px, 1fr) minmax(240px, 300px); }
 .juice--hibiscus .juice-media { order: 2; }
 .juice--hibiscus .juice-details { order: 3; }
 .juice--hibiscus .juice-card {
   order: 1;
   margin-left: 0;
-  margin-right: -180px;
+  margin-right: -66px;
   padding-left: clamp(28px, 4vw, 56px);
-  padding-right: 110px;
+  padding-right: 100px;
   background: var(--pink);
   color: var(--pink-text);
 }
@@ -404,7 +417,7 @@ a { color: inherit; }
     margin: -30px 0 0;
     padding: 28px 26px;
   }
-  .juice-media img { max-width: 320px; }
+  .juice-media img { max-width: 230px; }
 
   .about,
   .contact {
