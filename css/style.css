@@ -164,12 +164,18 @@ a { color: inherit; }
   margin: 0 auto 90px;
 }
 
+.juice-media { position: relative; z-index: 2; }
 .juice-media img { width: 100%; max-width: 420px; }
 
+/* The bottle PNGs carry ~100-125px of transparent margin at this size, so the
+   negative margins are larger than the visible overlap (~55px), as designed. */
 .juice-card {
+  position: relative;
+  z-index: 1;
   border-radius: var(--radius-card);
   padding: clamp(28px, 4vw, 56px);
-  margin-left: -40px;
+  padding-left: 110px;
+  margin-left: -165px;
 }
 
 .juice-card p { margin: 1.2em 0 0; }
@@ -186,7 +192,9 @@ a { color: inherit; }
 .juice--hibiscus .juice-card {
   order: 1;
   margin-left: 0;
-  margin-right: -40px;
+  margin-right: -180px;
+  padding-left: clamp(28px, 4vw, 56px);
+  padding-right: 110px;
   background: var(--pink);
   color: var(--pink-text);
 }
@@ -392,7 +400,10 @@ a { color: inherit; }
   .juice--hibiscus .juice-media { order: 1; }
   .juice--hibiscus .juice-card { order: 2; }
   .juice-card,
-  .juice--hibiscus .juice-card { margin: -30px 0 0; }
+  .juice--hibiscus .juice-card {
+    margin: -30px 0 0;
+    padding: 28px 26px;
+  }
   .juice-media img { max-width: 320px; }
 
   .about,
